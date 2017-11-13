@@ -10,10 +10,12 @@ def predict(df,l):
     dict={}
     for i in df.iloc[:,-1]:
         s.add(i)
+  
     i=0
     for el in s:
         dict[i]=el
         i+=1
+   
     p=[]
     class_dict={}
     for el in s:
@@ -21,9 +23,11 @@ def predict(df,l):
     prob=1
     for el in s:
         for i in range(len(l)):
-            prob=prob*((df.iloc[:,i][(df.iloc[:,i]==el)&( df.iloc[:,i]==l[i])].count()/df.iloc[:,i].count())/class_dict[el])
+            #print(df.iloc[:,i][(df.iloc[:,-1]==el)&( df.iloc[:,i]==l[i])].count())
+            prob=prob*((df.iloc[:,i][(df.iloc[:,-1]==el)&( df.iloc[:,i]==l[i])].count()/df.iloc[:,i].count())/class_dict[el])
         p.append(prob)
         prob=1
+    print(p)
     print(dict[p.index(max(p))])
         
 def main():
@@ -33,6 +37,8 @@ def main():
     show(df)
     for i in range(len(attr)-1):
         l.append(input('Enter value for '+attr[i]+':'))
+    
+   
     predict(df,l)
 
 main()

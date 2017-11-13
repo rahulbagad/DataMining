@@ -27,6 +27,12 @@ def predict(df,l):
             prob=prob*((df.iloc[:,i][(df.iloc[:,-1]==el)&( df.iloc[:,i]==l[i])].count()/df.iloc[:,i].count())/class_dict[el])
         p.append(prob)
         prob=1
+    psum=0
+    for i in p:
+        psum+=i
+    for i in range(len(p)):
+        p[i]=p[i]/psum
+    print(psum)
     print(p)
     print(dict[p.index(max(p))])
         

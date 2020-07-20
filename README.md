@@ -1,2 +1,2 @@
 # DataMining
-Data Mining Lab
+Data Mining Algorithms implementation using python. 

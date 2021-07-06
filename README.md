@@ -1,2 +1,3 @@
 # DataMining
-Data Mining Algorithms implementation written in python and C++. 
+
+Implementation of some of the famous data mining algorithms from scratch using python and c++
